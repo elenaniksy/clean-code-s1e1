@@ -43,13 +43,12 @@ body {
   flex-direction: column;
 }
 
-.task__item {
+.task__item, .new-task__item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-
 
 
 ul {
