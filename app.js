@@ -10,7 +10,8 @@
 
 var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
+const incompleteTaskHolder = document.getElementById("incomplete-tasks");//ul of #incompleteTasks
+console.log(incompleteTaskHolder);
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
 
@@ -85,7 +86,7 @@ var editTask=function(){
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
     var editBtn=listItem.querySelector(".edit");
-    var containsClass=listItem.classList.contains("editMode");
+    var containsClass=listItem.classList.contains("task__item_edit");
     //If class of the parent is .editmode
     if(containsClass){
 
@@ -127,7 +128,7 @@ var taskCompleted=function(){
 }
 
 
-var taskIncomplete=function(){
+var taskIncomplete = function(){
     console.log("Incomplete Task...");
 //Mark task as incomplete.
     //When the checkbox is unchecked
