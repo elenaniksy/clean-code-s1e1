@@ -36,8 +36,8 @@
             <input class="task__checkbox" type="checkbox">
             <label class="task__label">Pay Bills</label>
             <input class="task__input" type="text">
-            <button class="button button_edit edit">Edit</button>
-            <button class="button button_delete delete">
+            <button class="button button_edit">Edit</button>
+            <button class="button button_delete">
               <img class="button__img" src="./remove.svg" alt="Remove tag">
             </button>
           </li>
@@ -45,26 +45,25 @@
             <input class="task__checkbox" type="checkbox">
             <label class="task task__label">Go Shopping</label>
             <input class="task task__input" type="text" value="Go Shopping">
-            <button class="button button_edit edit">Save</button>
-            <button class="button button_delete delete">
+            <button class="button button_edit">Save</button>
+            <button class="button button_delete">
               <img class="button__img" src="./remove.svg" alt="Remove tag">
             </button>
           </li>
         </ul>
         <h3>Completed</h3>
-          <ul id="completed-tasks">
+          <ul class="complete-tasks__list" id="complete-tasks">
             <li class="task__item">
-              <input type="checkbox" checked>
-              <label class="task">See the Doctor</label>
-              <input type="text">
-              <button class="edit">Edit</button>
-              <button class="delete">
-                <img src="./remove.svg" alt="Remove tag">
+              <input class="task__checkbox" type="checkbox" checked>
+              <label class="task__label">See the Doctor</label>
+              <input class="task__input" type="text">
+              <button class="button button_edit">Edit</button>
+              <button class="button button_edit">
+                <img class="button__img" src="./remove.svg" alt="Remove tag">
               </button>
             </li>
           </ul>
       </section>
-
     </main>
     <script src="app.js"></script>
   </body>
