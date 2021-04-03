@@ -10,15 +10,14 @@
 
 var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-const incompleteTaskHolder = document.getElementById("incomplete-tasks");//ul of #incompleteTasks
+var incompleteTaskHolder = document.getElementById("incomplete-tasks");//ul of #incompleteTasks
 var completedTasksHolder=document.getElementById("complete-tasks");//completed-tasks
 
 
 //New task list item
-var createNewTaskElement=function(taskString){
+const createNewTaskElement=function(taskString) {
 
     var listItem=document.createElement("li");
-
     //input (checkbox)
     var checkBox=document.createElement("input");//checkbox
     //label
@@ -33,7 +32,6 @@ var createNewTaskElement=function(taskString){
     var deleteButtonImg=document.createElement("img");//delete button image
 
     listItem.className = "task__item";
-
     label.innerText = taskString;
     label.className='task__label';
 
@@ -52,7 +50,6 @@ var createNewTaskElement=function(taskString){
     deleteButtonImg.className = "button__img";
     deleteButton.appendChild(deleteButtonImg);
 
-
     //and appending.
     listItem.appendChild(checkBox);
     listItem.appendChild(label);
@@ -64,11 +61,11 @@ var createNewTaskElement=function(taskString){
 
 
 
-var addTask=function(){
+const addTask = function(){
     console.log("Add Task...");
     //Create a new list item with the text from the #new-task:
     if (!taskInput.value) return;
-    var listItem=createNewTaskElement(taskInput.value);
+    var listItem = createNewTaskElement(taskInput.value);
 
     //Append listItem to incompleteTaskHolder
     incompleteTaskHolder.appendChild(listItem);
@@ -98,6 +95,7 @@ var editTask=function(){
         //label becomes the inputs value.
         label.innerText = editInput.value;
         editBtn.innerText="Edit";
+
     } else {
         listItem.classList.remove("task__item_edit");
         editInput.value=label.innerText;
@@ -110,11 +108,11 @@ var editTask=function(){
 
 
 //Delete task.
-var deleteTask=function(){
+const deleteTask = function(){
     console.log("Delete Task...");
 
-    var listItem=this.parentNode;
-    var ul=listItem.parentNode;
+    var listItem = this.parentNode;
+    var ul = listItem.parentNode;
     //Remove the parent list item from the ul.
     ul.removeChild(listItem);
 
@@ -122,7 +120,7 @@ var deleteTask=function(){
 
 
 //Mark task completed
-var taskCompleted=function(){
+const taskCompleted = function(){
     console.log("Complete Task...");
 
     //Append the task list item to the #completed-tasks
@@ -136,7 +134,7 @@ var taskCompleted=function(){
 }
 
 
-var taskIncomplete = function(){
+const taskIncomplete = function () {
     console.log("Incomplete Task...");
 //Mark task as incomplete.
     //When the checkbox is unchecked
@@ -159,17 +157,17 @@ var ajaxRequest=function(){
 
 
 //Set the click handler to the addTask function.
-addButton.onclick=addTask;
-addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
+addButton.onclick = addTask;
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", ajaxRequest);
 
 
-const bindTaskEvents=function(taskListItem,checkBoxEventHandler){
+const bindTaskEvents = function (taskListItem, checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
     const checkBox = taskListItem.querySelector(".task__checkbox");
-    const editButton=taskListItem.querySelector(".button_edit");
-    const deleteButton=taskListItem.querySelector(".button_delete");
+    const editButton = taskListItem.querySelector(".button_edit") || '';
+    const deleteButton = taskListItem.querySelector(".button_delete");
 
 
     //Bind editTask to edit button.
@@ -183,7 +181,6 @@ const bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 //cycle over incompleteTaskHolder ul list items
 //for each list item
 for (let i = 0; i< incompleteTaskHolder.children.length; i++){
-
     //bind events to list items chldren(tasksCompleted)
     bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
 }
