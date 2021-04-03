@@ -38,6 +38,20 @@ body {
   display: inline-block;
 }
 
+.tasks {
+  display: flex;
+  flex-direction: column;
+}
+
+.task__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
 ul {
   margin: 0;
   padding: 0;
@@ -106,7 +120,7 @@ label[for="new-task"] {
   width: 318px;
 }
 
-p > button:hover {
+.new-task button:hover {
   color: #0fc57c;
 }
 
@@ -136,22 +150,22 @@ li > input[type="text"] {
   width: 226px;
 }
 
-.delete:hover {
+.button_delete:hover {
   color: #cf2323;
 }
 
-.button_delete .button__img {
+.button__img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
 
-.button_delete .button__img:hover {
+.button__img:hover {
   transform: rotateZ(0);
 }
 
 /* Completed */
-#completed-tasks label {
+#complete-tasks label {
   text-decoration: line-through;
   color: #888;
 }
